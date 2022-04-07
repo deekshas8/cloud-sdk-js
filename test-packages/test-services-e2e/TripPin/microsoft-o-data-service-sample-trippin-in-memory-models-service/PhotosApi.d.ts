@@ -7,6 +7,7 @@ import {
   AllFields,
   EntityBuilderType,
   EntityApi,
+  FieldBuilder,
   OrderableEdmTypeField,
   EdmTypeField
 } from '@sap-cloud-sdk/odata-v4';
@@ -25,40 +26,10 @@ export declare class PhotosApi<
     fieldName: string,
     isNullable?: NullableT
   ): CustomField<Photos<DeSerializersT>, DeSerializersT, NullableT>;
+  private _fieldBuilder?;
+  get fieldBuilder(): FieldBuilder<typeof Photos, DeSerializersT>;
+  private _schema?;
   get schema(): {
-    /**
-     *
-     * All fields selector.
-     */
-    ALL_FIELDS: AllFields<
-      Photos<
-        DeSerializers<
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any
-        >
-      >
-    >;
-    /**
-     * Static representation of the [[id]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     ID: OrderableEdmTypeField<
       Photos<
         DeSerializers<
@@ -88,10 +59,6 @@ export declare class PhotosApi<
       false,
       true
     >;
-    /**
-     * Static representation of the [[name]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     NAME: EdmTypeField<
       Photos<
         DeSerializers<
@@ -120,6 +87,31 @@ export declare class PhotosApi<
       'Edm.String',
       true,
       true
+    >;
+    ALL_FIELDS: AllFields<
+      Photos<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >
     >;
   };
 }

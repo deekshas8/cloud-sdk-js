@@ -9,6 +9,7 @@ import {
   AllFields,
   EntityBuilderType,
   EntityApi,
+  FieldBuilder,
   EdmTypeField,
   EnumField
 } from '@sap-cloud-sdk/odata-v4';
@@ -30,40 +31,10 @@ export declare class TestEntity3Api<
     fieldName: string,
     isNullable?: NullableT
   ): CustomField<TestEntity3<DeSerializersT>, DeSerializersT, NullableT>;
+  private _fieldBuilder?;
+  get fieldBuilder(): FieldBuilder<typeof TestEntity3, DeSerializersT>;
+  private _schema?;
   get schema(): {
-    /**
-     *
-     * All fields selector.
-     */
-    ALL_FIELDS: AllFields<
-      TestEntity3<
-        DeSerializers<
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any
-        >
-      >
-    >;
-    /**
-     * Static representation of the [[keyPropertyString]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     KEY_PROPERTY_STRING: EdmTypeField<
       TestEntity3<
         DeSerializers<
@@ -93,10 +64,6 @@ export declare class TestEntity3Api<
       false,
       true
     >;
-    /**
-     * Static representation of the [[enumProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     ENUM_PROPERTY: EnumField<
       TestEntity3<
         DeSerializers<
@@ -126,10 +93,6 @@ export declare class TestEntity3Api<
       true,
       true
     >;
-    /**
-     * Static representation of the [[complexTypeProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     COMPLEX_TYPE_PROPERTY: TestComplexType2Field<
       TestEntity3<
         DeSerializers<
@@ -157,6 +120,31 @@ export declare class TestEntity3Api<
       DeSerializersT,
       true,
       true
+    >;
+    ALL_FIELDS: AllFields<
+      TestEntity3<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >
     >;
   };
 }

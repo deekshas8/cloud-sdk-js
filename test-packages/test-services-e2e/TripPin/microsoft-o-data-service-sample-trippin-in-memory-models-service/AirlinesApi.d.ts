@@ -7,6 +7,7 @@ import {
   AllFields,
   EntityBuilderType,
   EntityApi,
+  FieldBuilder,
   EdmTypeField
 } from '@sap-cloud-sdk/odata-v4';
 export declare class AirlinesApi<
@@ -24,40 +25,10 @@ export declare class AirlinesApi<
     fieldName: string,
     isNullable?: NullableT
   ): CustomField<Airlines<DeSerializersT>, DeSerializersT, NullableT>;
+  private _fieldBuilder?;
+  get fieldBuilder(): FieldBuilder<typeof Airlines, DeSerializersT>;
+  private _schema?;
   get schema(): {
-    /**
-     *
-     * All fields selector.
-     */
-    ALL_FIELDS: AllFields<
-      Airlines<
-        DeSerializers<
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any
-        >
-      >
-    >;
-    /**
-     * Static representation of the [[airlineCode]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     AIRLINE_CODE: EdmTypeField<
       Airlines<
         DeSerializers<
@@ -87,10 +58,6 @@ export declare class AirlinesApi<
       false,
       true
     >;
-    /**
-     * Static representation of the [[name]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     NAME: EdmTypeField<
       Airlines<
         DeSerializers<
@@ -119,6 +86,31 @@ export declare class AirlinesApi<
       'Edm.String',
       false,
       true
+    >;
+    ALL_FIELDS: AllFields<
+      Airlines<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >
     >;
   };
 }

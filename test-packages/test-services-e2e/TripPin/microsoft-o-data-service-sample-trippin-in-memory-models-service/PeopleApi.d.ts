@@ -10,6 +10,7 @@ import {
   AllFields,
   EntityBuilderType,
   EntityApi,
+  FieldBuilder,
   EdmTypeField,
   CollectionField,
   EnumField,
@@ -34,58 +35,10 @@ export declare class PeopleApi<
     fieldName: string,
     isNullable?: NullableT
   ): CustomField<People<DeSerializersT>, DeSerializersT, NullableT>;
+  private _fieldBuilder?;
+  get fieldBuilder(): FieldBuilder<typeof People, DeSerializersT>;
+  private _schema?;
   get schema(): {
-    /**
-     *
-     * All fields selector.
-     */
-    ALL_FIELDS: AllFields<
-      People<
-        DeSerializers<
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any
-        >
-      >
-    >;
-    /**
-     * Static representation of the one-to-many navigation property [[friends]] for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
-    FRIENDS: OneToManyLink<
-      People<DeSerializersT>,
-      DeSerializersT,
-      PeopleApi<DeSerializersT>
-    >;
-    /**
-     * Static representation of the one-to-one navigation property [[photo]] for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
-    PHOTO: OneToOneLink<
-      People<DeSerializersT>,
-      DeSerializersT,
-      PhotosApi<DeSerializersT>
-    >;
-    /**
-     * Static representation of the [[userName]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     USER_NAME: EdmTypeField<
       People<
         DeSerializers<
@@ -115,10 +68,6 @@ export declare class PeopleApi<
       false,
       true
     >;
-    /**
-     * Static representation of the [[firstName]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     FIRST_NAME: EdmTypeField<
       People<
         DeSerializers<
@@ -148,10 +97,6 @@ export declare class PeopleApi<
       false,
       true
     >;
-    /**
-     * Static representation of the [[lastName]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     LAST_NAME: EdmTypeField<
       People<
         DeSerializers<
@@ -181,10 +126,6 @@ export declare class PeopleApi<
       false,
       true
     >;
-    /**
-     * Static representation of the [[emails]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     EMAILS: CollectionField<
       People<
         DeSerializers<
@@ -214,10 +155,6 @@ export declare class PeopleApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[addressInfo]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     ADDRESS_INFO: CollectionField<
       People<
         DeSerializers<
@@ -247,10 +184,6 @@ export declare class PeopleApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[gender]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     GENDER: EnumField<
       People<
         DeSerializers<
@@ -280,10 +213,6 @@ export declare class PeopleApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[concurrency]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     CONCURRENCY: OrderableEdmTypeField<
       People<
         DeSerializers<
@@ -312,6 +241,49 @@ export declare class PeopleApi<
       'Edm.Int64',
       false,
       true
+    >;
+    /**
+     * Static representation of the one-to-many navigation property [[friends]] for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    FRIENDS: OneToManyLink<
+      People<DeSerializersT>,
+      DeSerializersT,
+      PeopleApi<DeSerializersT>
+    >;
+    /**
+     * Static representation of the one-to-one navigation property [[photo]] for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    PHOTO: OneToOneLink<
+      People<DeSerializersT>,
+      DeSerializersT,
+      PhotosApi<DeSerializersT>
+    >;
+    ALL_FIELDS: AllFields<
+      People<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >
     >;
   };
 }

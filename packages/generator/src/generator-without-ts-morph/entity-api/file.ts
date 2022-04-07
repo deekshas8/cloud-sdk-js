@@ -44,7 +44,6 @@ function getImports(entity: VdmEntity, service: VdmServiceMetadata): Import[] {
       typeOnly: false
     },
     ...otherEntityApiImports(entity, service),
-    // ...externalImports(entity.properties),
     ...complexTypeImports(entity.properties),
     ...enumTypeImports(entity.properties),
     odataImport(
@@ -53,13 +52,11 @@ function getImports(entity: VdmEntity, service: VdmServiceMetadata): Import[] {
         'defaultDeSerializers',
         'DefaultDeSerializers',
         'DeSerializers',
-        'mergeDefaultDeSerializersWith',
         'AllFields',
         'entityBuilder',
         'EntityBuilderType',
         'EntityApi',
         'FieldBuilder',
-        'Time',
         ...propertyTypeImportNames(entity.properties),
         ...propertyFieldTypeImportNames(entity.properties),
         ...navPropertyFieldTypeImportNames(
@@ -94,10 +91,6 @@ function otherEntityApiImports(
 
 function otherEntityImports(name: string): Import[] {
   return [
-    {
-      names: [`${name}`],
-      moduleIdentifier: `./${name}`
-    },
     {
       names: [`${name}Api`],
       moduleIdentifier: `./${name}Api`

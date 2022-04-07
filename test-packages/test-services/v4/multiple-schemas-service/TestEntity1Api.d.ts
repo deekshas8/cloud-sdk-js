@@ -9,6 +9,7 @@ import {
   AllFields,
   EntityBuilderType,
   EntityApi,
+  FieldBuilder,
   EdmTypeField,
   OrderableEdmTypeField,
   EnumField
@@ -31,40 +32,10 @@ export declare class TestEntity1Api<
     fieldName: string,
     isNullable?: NullableT
   ): CustomField<TestEntity1<DeSerializersT>, DeSerializersT, NullableT>;
+  private _fieldBuilder?;
+  get fieldBuilder(): FieldBuilder<typeof TestEntity1, DeSerializersT>;
+  private _schema?;
   get schema(): {
-    /**
-     *
-     * All fields selector.
-     */
-    ALL_FIELDS: AllFields<
-      TestEntity1<
-        DeSerializers<
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any
-        >
-      >
-    >;
-    /**
-     * Static representation of the [[keyPropertyString]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     KEY_PROPERTY_STRING: EdmTypeField<
       TestEntity1<
         DeSerializers<
@@ -94,10 +65,6 @@ export declare class TestEntity1Api<
       false,
       true
     >;
-    /**
-     * Static representation of the [[int16Property]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     INT_16_PROPERTY: OrderableEdmTypeField<
       TestEntity1<
         DeSerializers<
@@ -127,10 +94,6 @@ export declare class TestEntity1Api<
       true,
       true
     >;
-    /**
-     * Static representation of the [[enumProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     ENUM_PROPERTY: EnumField<
       TestEntity1<
         DeSerializers<
@@ -160,10 +123,6 @@ export declare class TestEntity1Api<
       true,
       true
     >;
-    /**
-     * Static representation of the [[complexTypeProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     COMPLEX_TYPE_PROPERTY: TestComplexType1Field<
       TestEntity1<
         DeSerializers<
@@ -191,6 +150,31 @@ export declare class TestEntity1Api<
       DeSerializersT,
       true,
       true
+    >;
+    ALL_FIELDS: AllFields<
+      TestEntity1<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >
     >;
   };
 }

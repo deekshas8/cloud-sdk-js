@@ -8,6 +8,7 @@ import {
   AllFields,
   EntityBuilderType,
   EntityApi,
+  FieldBuilder,
   EnumField
 } from '@sap-cloud-sdk/odata-v4';
 export declare class TestEntityWithEnumKeyApi<
@@ -32,40 +33,13 @@ export declare class TestEntityWithEnumKeyApi<
     DeSerializersT,
     NullableT
   >;
+  private _fieldBuilder?;
+  get fieldBuilder(): FieldBuilder<
+    typeof TestEntityWithEnumKey,
+    DeSerializersT
+  >;
+  private _schema?;
   get schema(): {
-    /**
-     *
-     * All fields selector.
-     */
-    ALL_FIELDS: AllFields<
-      TestEntityWithEnumKey<
-        DeSerializers<
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any
-        >
-      >
-    >;
-    /**
-     * Static representation of the [[keyPropertyEnum1]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     KEY_PROPERTY_ENUM_1: EnumField<
       TestEntityWithEnumKey<
         DeSerializers<
@@ -94,6 +68,31 @@ export declare class TestEntityWithEnumKeyApi<
       TestEnumType,
       false,
       true
+    >;
+    ALL_FIELDS: AllFields<
+      TestEntityWithEnumKey<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >
     >;
   };
 }

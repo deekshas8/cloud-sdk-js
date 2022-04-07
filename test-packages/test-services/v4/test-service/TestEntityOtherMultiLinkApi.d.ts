@@ -7,6 +7,7 @@ import {
   AllFields,
   EntityBuilderType,
   EntityApi,
+  FieldBuilder,
   EdmTypeField
 } from '@sap-cloud-sdk/odata-v4';
 export declare class TestEntityOtherMultiLinkApi<
@@ -32,40 +33,13 @@ export declare class TestEntityOtherMultiLinkApi<
     DeSerializersT,
     NullableT
   >;
+  private _fieldBuilder?;
+  get fieldBuilder(): FieldBuilder<
+    typeof TestEntityOtherMultiLink,
+    DeSerializersT
+  >;
+  private _schema?;
   get schema(): {
-    /**
-     *
-     * All fields selector.
-     */
-    ALL_FIELDS: AllFields<
-      TestEntityOtherMultiLink<
-        DeSerializers<
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any
-        >
-      >
-    >;
-    /**
-     * Static representation of the [[keyProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     KEY_PROPERTY: EdmTypeField<
       TestEntityOtherMultiLink<
         DeSerializers<
@@ -94,6 +68,31 @@ export declare class TestEntityOtherMultiLinkApi<
       'Edm.String',
       false,
       true
+    >;
+    ALL_FIELDS: AllFields<
+      TestEntityOtherMultiLink<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >
     >;
   };
 }

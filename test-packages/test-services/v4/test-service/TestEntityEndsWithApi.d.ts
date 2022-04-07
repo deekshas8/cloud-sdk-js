@@ -7,6 +7,7 @@ import {
   AllFields,
   EntityBuilderType,
   EntityApi,
+  FieldBuilder,
   EdmTypeField
 } from '@sap-cloud-sdk/odata-v4';
 export declare class TestEntityEndsWithApi<
@@ -27,40 +28,10 @@ export declare class TestEntityEndsWithApi<
     fieldName: string,
     isNullable?: NullableT
   ): CustomField<TestEntityEndsWith<DeSerializersT>, DeSerializersT, NullableT>;
+  private _fieldBuilder?;
+  get fieldBuilder(): FieldBuilder<typeof TestEntityEndsWith, DeSerializersT>;
+  private _schema?;
   get schema(): {
-    /**
-     *
-     * All fields selector.
-     */
-    ALL_FIELDS: AllFields<
-      TestEntityEndsWith<
-        DeSerializers<
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any
-        >
-      >
-    >;
-    /**
-     * Static representation of the [[keyProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     KEY_PROPERTY: EdmTypeField<
       TestEntityEndsWith<
         DeSerializers<
@@ -89,6 +60,31 @@ export declare class TestEntityEndsWithApi<
       'Edm.String',
       false,
       true
+    >;
+    ALL_FIELDS: AllFields<
+      TestEntityEndsWith<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >
     >;
   };
 }

@@ -8,6 +8,7 @@ import {
   AllFields,
   EntityBuilderType,
   EntityApi,
+  FieldBuilder,
   OrderableEdmTypeField,
   EdmTypeField,
   OneToManyLink
@@ -32,49 +33,10 @@ export declare class TestEntityApi<
     fieldName: string,
     isNullable?: NullableT
   ): CustomField<TestEntity<DeSerializersT>, DeSerializersT, NullableT>;
+  private _fieldBuilder?;
+  get fieldBuilder(): FieldBuilder<typeof TestEntity, DeSerializersT>;
+  private _schema?;
   get schema(): {
-    /**
-     *
-     * All fields selector.
-     */
-    ALL_FIELDS: AllFields<
-      TestEntity<
-        DeSerializers<
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any
-        >
-      >
-    >;
-    /**
-     * Static representation of the one-to-many navigation property [[toMultiLink]] for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
-    TO_MULTI_LINK: OneToManyLink<
-      TestEntity<DeSerializersT>,
-      DeSerializersT,
-      TestEntityLinkApi<DeSerializersT>
-    >;
-    /**
-     * Static representation of the [[keyTestEntity]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     KEY_TEST_ENTITY: OrderableEdmTypeField<
       TestEntity<
         DeSerializers<
@@ -104,10 +66,6 @@ export declare class TestEntityApi<
       false,
       true
     >;
-    /**
-     * Static representation of the [[stringProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     STRING_PROPERTY: EdmTypeField<
       TestEntity<
         DeSerializers<
@@ -137,10 +95,6 @@ export declare class TestEntityApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[guidProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     GUID_PROPERTY: EdmTypeField<
       TestEntity<
         DeSerializers<
@@ -170,10 +124,6 @@ export declare class TestEntityApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[booleanProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     BOOLEAN_PROPERTY: EdmTypeField<
       TestEntity<
         DeSerializers<
@@ -203,10 +153,6 @@ export declare class TestEntityApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[int64Property]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     INT_64_PROPERTY: OrderableEdmTypeField<
       TestEntity<
         DeSerializers<
@@ -236,10 +182,6 @@ export declare class TestEntityApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[doubleProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     DOUBLE_PROPERTY: OrderableEdmTypeField<
       TestEntity<
         DeSerializers<
@@ -269,10 +211,6 @@ export declare class TestEntityApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[decimalProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     DECIMAL_PROPERTY: OrderableEdmTypeField<
       TestEntity<
         DeSerializers<
@@ -302,10 +240,6 @@ export declare class TestEntityApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[dateProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     DATE_PROPERTY: OrderableEdmTypeField<
       TestEntity<
         DeSerializers<
@@ -335,10 +269,6 @@ export declare class TestEntityApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[timeOfDayProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     TIME_OF_DAY_PROPERTY: OrderableEdmTypeField<
       TestEntity<
         DeSerializers<
@@ -368,10 +298,6 @@ export declare class TestEntityApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[dataTimeOffsetDataTimeProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     DATA_TIME_OFFSET_DATA_TIME_PROPERTY: OrderableEdmTypeField<
       TestEntity<
         DeSerializers<
@@ -401,10 +327,6 @@ export declare class TestEntityApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[dataTimeOffsetTimestampProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     DATA_TIME_OFFSET_TIMESTAMP_PROPERTY: OrderableEdmTypeField<
       TestEntity<
         DeSerializers<
@@ -433,6 +355,40 @@ export declare class TestEntityApi<
       'Edm.DateTimeOffset',
       true,
       true
+    >;
+    /**
+     * Static representation of the one-to-many navigation property [[toMultiLink]] for query construction.
+     * Use to reference this property in query operations such as 'select' in the fluent request API.
+     */
+    TO_MULTI_LINK: OneToManyLink<
+      TestEntity<DeSerializersT>,
+      DeSerializersT,
+      TestEntityLinkApi<DeSerializersT>
+    >;
+    ALL_FIELDS: AllFields<
+      TestEntity<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >
     >;
   };
 }

@@ -10,13 +10,11 @@ import {
   defaultDeSerializers,
   DefaultDeSerializers,
   DeSerializers,
-  mergeDefaultDeSerializersWith,
   AllFields,
   entityBuilder,
   EntityBuilderType,
   EntityApi,
   FieldBuilder,
-  Time,
   EdmTypeField
 } from '@sap-cloud-sdk/odata-v4';
 export class AirlinesApi<
@@ -58,29 +56,59 @@ export class AirlinesApi<
     ) as any;
   }
 
+  private _fieldBuilder?: FieldBuilder<typeof Airlines, DeSerializersT>;
+  get fieldBuilder() {
+    if (!this._fieldBuilder) {
+      this._fieldBuilder = new FieldBuilder(Airlines, this.deSerializers);
+    }
+    return this._fieldBuilder;
+  }
+
+  private _schema?: {
+    AIRLINE_CODE: EdmTypeField<
+      Airlines<DeSerializers>,
+      DeSerializersT,
+      'Edm.String',
+      false,
+      true
+    >;
+    NAME: EdmTypeField<
+      Airlines<DeSerializers>,
+      DeSerializersT,
+      'Edm.String',
+      false,
+      true
+    >;
+    ALL_FIELDS: AllFields<Airlines<DeSerializers>>;
+  };
+
   get schema() {
-    const fieldBuilder = new FieldBuilder(Airlines, this.deSerializers);
-    return {
-      /**
-       * Static representation of the [[airlineCode]] property for query construction.
-       * Use to reference this property in query operations such as 'select' in the fluent request API.
-       */
-      AIRLINE_CODE: fieldBuilder.buildEdmTypeField(
-        'AirlineCode',
-        'Edm.String',
-        false
-      ),
-      /**
-       * Static representation of the [[name]] property for query construction.
-       * Use to reference this property in query operations such as 'select' in the fluent request API.
-       */
-      NAME: fieldBuilder.buildEdmTypeField('Name', 'Edm.String', false),
-      ...this.navigationPropertyFields,
-      /**
-       *
-       * All fields selector.
-       */
-      ALL_FIELDS: new AllFields('*', Airlines)
-    };
+    if (!this._schema) {
+      const fieldBuilder = this.fieldBuilder;
+      this._schema = {
+        /**
+         * Static representation of the [[airlineCode]] property for query construction.
+         * Use to reference this property in query operations such as 'select' in the fluent request API.
+         */
+        AIRLINE_CODE: fieldBuilder.buildEdmTypeField(
+          'AirlineCode',
+          'Edm.String',
+          false
+        ),
+        /**
+         * Static representation of the [[name]] property for query construction.
+         * Use to reference this property in query operations such as 'select' in the fluent request API.
+         */
+        NAME: fieldBuilder.buildEdmTypeField('Name', 'Edm.String', false),
+        ...this.navigationPropertyFields,
+        /**
+         *
+         * All fields selector.
+         */
+        ALL_FIELDS: new AllFields('*', Airlines)
+      };
+    }
+
+    return this._schema;
   }
 }

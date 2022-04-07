@@ -7,6 +7,7 @@ import {
   AllFields,
   EntityBuilderType,
   EntityApi,
+  FieldBuilder,
   EdmTypeField
 } from '@sap-cloud-sdk/odata-v4';
 export declare class TestEntity4Api<
@@ -27,40 +28,10 @@ export declare class TestEntity4Api<
     fieldName: string,
     isNullable?: NullableT
   ): CustomField<TestEntity4<DeSerializersT>, DeSerializersT, NullableT>;
+  private _fieldBuilder?;
+  get fieldBuilder(): FieldBuilder<typeof TestEntity4, DeSerializersT>;
+  private _schema?;
   get schema(): {
-    /**
-     *
-     * All fields selector.
-     */
-    ALL_FIELDS: AllFields<
-      TestEntity4<
-        DeSerializers<
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any
-        >
-      >
-    >;
-    /**
-     * Static representation of the [[keyPropertyString]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     KEY_PROPERTY_STRING: EdmTypeField<
       TestEntity4<
         DeSerializers<
@@ -90,10 +61,6 @@ export declare class TestEntity4Api<
       false,
       true
     >;
-    /**
-     * Static representation of the [[booleanProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     BOOLEAN_PROPERTY: EdmTypeField<
       TestEntity4<
         DeSerializers<
@@ -122,6 +89,31 @@ export declare class TestEntity4Api<
       'Edm.Boolean',
       true,
       true
+    >;
+    ALL_FIELDS: AllFields<
+      TestEntity4<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >
     >;
   };
 }

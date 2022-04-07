@@ -7,6 +7,7 @@ import {
   AllFields,
   EntityBuilderType,
   EntityApi,
+  FieldBuilder,
   EdmTypeField,
   OrderableEdmTypeField
 } from '@sap-cloud-sdk/odata-v4';
@@ -33,40 +34,13 @@ export declare class TestEntityLvl2SingleLinkApi<
     DeSerializersT,
     NullableT
   >;
+  private _fieldBuilder?;
+  get fieldBuilder(): FieldBuilder<
+    typeof TestEntityLvl2SingleLink,
+    DeSerializersT
+  >;
+  private _schema?;
   get schema(): {
-    /**
-     *
-     * All fields selector.
-     */
-    ALL_FIELDS: AllFields<
-      TestEntityLvl2SingleLink<
-        DeSerializers<
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any,
-          any
-        >
-      >
-    >;
-    /**
-     * Static representation of the [[stringProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     STRING_PROPERTY: EdmTypeField<
       TestEntityLvl2SingleLink<
         DeSerializers<
@@ -96,10 +70,6 @@ export declare class TestEntityLvl2SingleLinkApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[booleanProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     BOOLEAN_PROPERTY: EdmTypeField<
       TestEntityLvl2SingleLink<
         DeSerializers<
@@ -129,10 +99,6 @@ export declare class TestEntityLvl2SingleLinkApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[guidProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     GUID_PROPERTY: EdmTypeField<
       TestEntityLvl2SingleLink<
         DeSerializers<
@@ -162,10 +128,6 @@ export declare class TestEntityLvl2SingleLinkApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[int16Property]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     INT_16_PROPERTY: OrderableEdmTypeField<
       TestEntityLvl2SingleLink<
         DeSerializers<
@@ -195,10 +157,6 @@ export declare class TestEntityLvl2SingleLinkApi<
       true,
       true
     >;
-    /**
-     * Static representation of the [[keyProperty]] property for query construction.
-     * Use to reference this property in query operations such as 'select' in the fluent request API.
-     */
     KEY_PROPERTY: EdmTypeField<
       TestEntityLvl2SingleLink<
         DeSerializers<
@@ -227,6 +185,31 @@ export declare class TestEntityLvl2SingleLinkApi<
       'Edm.String',
       false,
       true
+    >;
+    ALL_FIELDS: AllFields<
+      TestEntityLvl2SingleLink<
+        DeSerializers<
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any,
+          any
+        >
+      >
     >;
   };
 }
