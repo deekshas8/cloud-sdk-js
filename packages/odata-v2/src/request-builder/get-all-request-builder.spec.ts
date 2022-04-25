@@ -23,8 +23,10 @@ import {
   providerServiceToken,
   createOriginalTestEntityDataWithLinks
 } from '@sap-cloud-sdk/private-test-utils';
-import { wrapJwtInHeader } from '../../../connectivity/src/scp-cf/jwt';
-import { parseDestination } from '../../../connectivity/src/scp-cf/destination/destination';
+import {
+  wrapJwtInHeader,
+  parseDestination
+} from '@sap-cloud-sdk/connectivity/internal';
 import {
   testEntityApi,
   testEntitySingleLinkApi,

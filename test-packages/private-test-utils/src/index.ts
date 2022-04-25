@@ -6,6 +6,6 @@ export * from './keys';
 export * from './mocked-access-tokens';
 export * from './request-mocker';
 export * from './test-data';
-export * from './testPostRequestOutcome';
 export * from './token-accessor-mocks';
 export * from './xsuaa-service-mocks';
+export * from './test-post-request-outcome';
