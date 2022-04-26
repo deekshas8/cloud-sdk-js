@@ -2,9 +2,10 @@ import {
   onlyIssuerXsuaaUrl,
   providerXsuaaUrl,
   subscriberXsuaaUrl,
-  TestTenants
-} from './environment-mocks';
-import { signedJwt, signedJwtForVerification } from './keys';
+  TestTenants,
+  signedJwt,
+  signedJwtForVerification
+} from '@sap-cloud-sdk/internal-test-utils';
 
 const iat = Math.floor(Date.now() / 1000);
 

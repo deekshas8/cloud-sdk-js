@@ -2,7 +2,9 @@ import nock from 'nock';
 import {
   mockServiceBindings,
   onlyIssuerXsuaaUrl,
-  TestTenants,
+  TestTenants
+} from '@sap-cloud-sdk/internal-test-utils';
+import {
   expectAllMocksUsed,
   mockJwtBearerToken,
   mockServiceToken,
@@ -34,7 +36,7 @@ import {
   onPremiseBasicMultipleResponse,
   onPremiseBasicSingleResponse,
   onPremisePrincipalPropagationMultipleResponse
-} from '@sap-cloud-sdk/private-test-utils';
+} from '../../../test/test-util';
 import { clientCredentialsTokenCache } from '../client-credentials-token-cache';
 import { wrapJwtInHeader } from '../jwt';
 import * as identityService from '../identity-service';

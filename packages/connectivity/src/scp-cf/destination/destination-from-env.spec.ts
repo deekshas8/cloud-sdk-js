@@ -3,7 +3,7 @@ import { createLogger } from '@sap-cloud-sdk/util';
 import {
   mockDestinationsEnv,
   unmockDestinationsEnv
-} from '@sap-cloud-sdk/private-test-utils';
+} from '@sap-cloud-sdk/internal-test-utils';
 import { Destination } from './destination-service-types';
 import {
   getDestinationFromEnvByName,

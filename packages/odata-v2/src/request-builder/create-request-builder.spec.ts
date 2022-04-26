@@ -2,15 +2,15 @@ import nock from 'nock';
 import { v4 as uuid } from 'uuid';
 import {
   defaultDestination,
-  defaultHost,
-  mockCreateRequest,
-  testPostRequestOutcome
-} from '@sap-cloud-sdk/private-test-utils';
+  defaultHost
+} from '@sap-cloud-sdk/internal-test-utils';
 import {
+  mockCreateRequest,
   testEntityApi,
   testEntityMultiLinkApi,
   testEntitySingleLinkApi,
-  testEntityResourcePath
+  testEntityResourcePath,
+  testPostRequestOutcome
 } from '../../test/test-util';
 import { CreateRequestBuilder } from './create-request-builder';
 

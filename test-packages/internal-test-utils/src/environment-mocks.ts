@@ -1,9 +1,3 @@
-import { XsuaaServiceCredentials } from '@sap-cloud-sdk/connectivity/internal';
-import {
-  Protocol,
-  ProxyConfiguration,
-  Service
-} from '@sap-cloud-sdk/connectivity';
 import { publicKey } from './keys';
 
 export enum TestTenants {
@@ -20,9 +14,9 @@ export const destinationServiceUri = 'https://destination.example.com';
 
 export const providerXsuaaClientCredentials = {
   url: providerXsuaaUrl
-} as XsuaaServiceCredentials;
+};
 
-export const xsuaaBindingMock: Service = {
+export const xsuaaBindingMock = {
   plan: 'application',
   label: 'xsuaa',
   name: 'my-xsuaa',
@@ -37,7 +31,7 @@ export const xsuaaBindingMock: Service = {
   }
 };
 
-export const destinationBindingClientSecretMock: Service = {
+export const destinationBindingClientSecretMock = {
   plan: 'lite',
   label: 'destination',
   name: 'my-destination',
@@ -50,7 +44,7 @@ export const destinationBindingClientSecretMock: Service = {
   }
 };
 
-export const destinationBindingCertMock: Service = {
+export const destinationBindingCertMock = {
   plan: 'lite',
   label: 'destination',
   name: 'my-destination',
@@ -65,13 +59,13 @@ export const destinationBindingCertMock: Service = {
   }
 };
 
-export const connectivityProxyConfigMock: ProxyConfiguration = {
+export const connectivityProxyConfigMock = {
   host: 'proxy.example.com',
   port: 12345,
-  protocol: Protocol.HTTP
+  protocol: 'http'
 };
 
-export const connectivityBindingMock: Service = {
+export const connectivityBindingMock = {
   plan: 'application',
   label: 'connectivity',
   name: 'my-connectivity',
@@ -85,9 +79,9 @@ export const connectivityBindingMock: Service = {
 };
 
 export interface MockServiceBindings {
-  xsuaa: Service[];
-  destination: Service[];
-  connectivity: Service[];
+  xsuaa: any[];
+  destination: any[];
+  connectivity: any[];
 }
 
 export function mockServiceBindings(

@@ -9,50 +9,17 @@ import {
   ODataRequest,
   ODataUpdateRequestConfig
 } from '@sap-cloud-sdk/odata-common/internal';
-import { createODataUri as createODataUriV2 } from '@sap-cloud-sdk/odata-v2/internal';
-import { createODataUri as createODataUriV4 } from '@sap-cloud-sdk/odata-v4/internal';
+import { createODataUri } from '../../src/internal';
 import { Destination } from '@sap-cloud-sdk/connectivity';
-import { basicHeader } from '@sap-cloud-sdk/connectivity/internal';
+import {
+  defaultDestination,
+  defaultHost,
+  defaultRequestHeaders,
+  defaultCsrfToken,
+  mockHeaderRequest
+} from '@sap-cloud-sdk/connectivity/internal';
 
-export const defaultHost = 'http://localhost';
-const defaultCsrfToken = 'mocked-x-csrf-token';
-
-const mockedBuildHeaderResponse = {
-  'x-csrf-token': defaultCsrfToken,
-  'set-cookie': ['mocked-cookie-0;mocked-cookie-1', 'mocked-cookie-2']
-};
-
-export const defaultBasicCredentials = 'Basic dXNlcm5hbWU6cGFzc3dvcmQ=';
-
-export const defaultRequestHeaders = {
-  authorization: defaultBasicCredentials,
-  cookie: 'mocked-cookie-0;mocked-cookie-2',
-  'content-type': 'application/json',
-  accept: 'application/json',
-  'sap-client': '123'
-};
-
-export const defaultDestinationName = 'Testination';
-
-export const defaultDestination: Destination = {
-  name: defaultDestinationName,
-  url: '/testination',
-  username: 'username',
-  password: 'password',
-  sapClient: '123',
-  authTokens: [],
-  originalProperties: {}
-};
-
-export function mockDestinationsEnv(...destinations) {
-  process.env.destinations = JSON.stringify([...destinations]);
-}
-
-export function unmockDestinationsEnv() {
-  delete process.env.destinations;
-}
-
-interface MockRequestParams {
+export interface MockRequestParams {
   host?: string;
   destination?: Destination;
   path?: string;
@@ -73,7 +40,7 @@ export function mockCreateRequest<T extends EntityApi<EntityBase, any>>(
 ) {
   const requestConfig = new ODataCreateRequestConfig(
     entityApi,
-    createODataUriV2(entityApi.deSerializers)
+    createODataUri(entityApi.deSerializers)
   );
   return mockRequest(requestConfig, {
     ...params,
@@ -83,29 +50,13 @@ export function mockCreateRequest<T extends EntityApi<EntityBase, any>>(
   });
 }
 
-export function mockCreateRequestV4<T extends EntityApi<EntityBase, any>>(
-  params: MockRequestParams,
-  entityApi: T
-) {
-  const requestConfig = new ODataCreateRequestConfig(
-    entityApi,
-    createODataUriV4(entityApi.deSerializers)
-  );
-  return mockRequest(requestConfig, {
-    ...params,
-    statusCode: params.statusCode || 200,
-    method: params.method || 'post',
-    responseBody: params.responseBody
-  });
-}
-
 export function mockDeleteRequest<T extends EntityApi<EntityBase, any>>(
   params: MockRequestParams,
   entityApi: T
 ) {
   const requestConfig = new ODataDeleteRequestConfig(
     entityApi,
-    createODataUriV2(entityApi.deSerializers)
+    createODataUri(entityApi.deSerializers)
   );
   return mockRequest(requestConfig, {
     ...params,
@@ -120,7 +71,7 @@ export function mockUpdateRequest<T extends EntityApi<EntityBase, any>>(
 ) {
   const requestConfig = new ODataUpdateRequestConfig(
     entityApi,
-    createODataUriV2(entityApi.deSerializers)
+    createODataUri(entityApi.deSerializers)
   );
   return mockRequest(requestConfig, {
     ...params,
@@ -148,7 +99,7 @@ export function mockGetRequest<T extends EntityApi<EntityBase, any>>(
 ) {
   const requestConfig = new ODataGetAllRequestConfig(
     entityApi,
-    createODataUriV2(entityApi.deSerializers)
+    createODataUri(entityApi.deSerializers)
   );
   return mockRequest(requestConfig, {
     ...params,
@@ -158,25 +109,7 @@ export function mockGetRequest<T extends EntityApi<EntityBase, any>>(
   });
 }
 
-interface MockHeaderRequestParams {
-  request;
-  host?: string;
-  responseHeaders?: Record<string, any>;
-  path?: string;
-}
-
-export function mockHeaderRequest({
-  request,
-  host = defaultHost,
-  responseHeaders = mockedBuildHeaderResponse,
-  path
-}: MockHeaderRequestParams) {
-  return nock(host)
-    .head(path ? `${request.serviceUrl()}/${path}` : request.serviceUrl())
-    .reply(200, undefined, responseHeaders);
-}
-
-export function mockRequest(
+function mockRequest(
   requestConfig,
   {
     host = defaultHost,
@@ -223,26 +156,4 @@ function getRequestHeaders(
         : { ...defaultRequestHeaders, 'x-csrf-token': defaultCsrfToken };
     return { reqheaders: { ...initialHeaders, ...additionalHeaders } };
   }
-}
-
-export function mockCsrfTokenRequest(
-  host: string,
-  sapClient: string,
-  servicePath = '/sap/opu/odata/sap/API_TEST_SRV',
-  username = 'username',
-  password = 'password',
-  csrfToken = 'CSRFTOKEN'
-) {
-  nock(host, {
-    reqheaders: {
-      authorization: basicHeader(username, password),
-      'x-csrf-token': 'Fetch',
-      'sap-client': sapClient
-    }
-  })
-    .get(servicePath)
-    .reply(200, '', {
-      'x-csrf-token': csrfToken,
-      'Set-Cookie': ['key1=val1', 'key2=val2', 'key3=val3']
-    });
 }

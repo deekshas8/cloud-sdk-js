@@ -1,16 +1,16 @@
 import { TestEntity } from '@sap-cloud-sdk/test-services-odata-v4/test-service';
 import {
   defaultDestination,
-  mockCountRequest,
-  mockGetRequest,
-  unmockDestinationsEnv,
-  createOriginalTestEntityData1,
-  createOriginalTestEntityData2,
-  createOriginalTestEntityDataWithLinks
-} from '@sap-cloud-sdk/private-test-utils';
+  unmockDestinationsEnv
+} from '@sap-cloud-sdk/internal-test-utils';
 import { any } from '../filter';
 import { DefaultDeSerializers } from '../de-serializers';
 import {
+  mockCountRequest,
+  mockGetRequest,
+  createOriginalTestEntityData1,
+  createOriginalTestEntityData2,
+  createOriginalTestEntityDataWithLinks,
   testEntityApi,
   testEntityLvl2MultiLinkApi,
   testEntityMultiLinkApi,

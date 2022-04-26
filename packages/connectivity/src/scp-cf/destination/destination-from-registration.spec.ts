@@ -3,11 +3,13 @@ import { JwtHeader, JwtPayload } from 'jsonwebtoken';
 import base64url from 'base64url';
 import {
   mockServiceBindings,
+  unmockDestinationsEnv
+} from '@sap-cloud-sdk/internal-test-utils';
+import {
   providerServiceToken,
   subscriberServiceToken,
-  subscriberUserJwt,
-  unmockDestinationsEnv
-} from '@sap-cloud-sdk/private-test-utils';
+  subscriberUserJwt
+} from '../../../test/test-util';
 import {
   DestinationWithName,
   registerDestination,

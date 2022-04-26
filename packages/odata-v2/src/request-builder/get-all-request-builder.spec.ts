@@ -4,12 +4,10 @@ import { TestEntity } from '@sap-cloud-sdk/test-services-odata-v2/test-service';
 import { encodeTypedClientRequest } from '@sap-cloud-sdk/http-client/dist/http-client';
 import {
   defaultDestination,
-  mockCountRequest,
   mockDestinationsEnv,
-  mockGetRequest,
-  unmockDestinationsEnv,
-  createOriginalTestEntityData1,
-  createOriginalTestEntityData2,
+  unmockDestinationsEnv
+} from '@sap-cloud-sdk/internal-test-utils';
+import {
   expectAllMocksUsed,
   certificateMultipleResponse,
   certificateSingleResponse,
@@ -20,9 +18,8 @@ import {
   onlyIssuerServiceToken,
   onlyIssuerXsuaaUrl,
   providerXsuaaUrl,
-  providerServiceToken,
-  createOriginalTestEntityDataWithLinks
-} from '@sap-cloud-sdk/private-test-utils';
+  providerServiceToken
+} from '@sap-cloud-sdk/connectivity/test-util';
 import {
   wrapJwtInHeader,
   parseDestination
@@ -32,6 +29,11 @@ import {
   testEntitySingleLinkApi,
   createTestEntity,
   testEntityApiCustom,
+  mockCountRequest,
+  mockGetRequest,
+  createOriginalTestEntityData1,
+  createOriginalTestEntityData2,
+  createOriginalTestEntityDataWithLinks,
   createTestEntityWithCustomDeSerializers
 } from '../../test/test-util';
 import { DefaultDeSerializers } from '../de-serializers';

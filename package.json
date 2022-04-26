@@ -28,13 +28,13 @@
     "packages/generator-common",
     "packages/temporal-de-serializers",
     "test-packages/integration-tests",
+    "test-packages/internal-test-utils",
     "test-packages/e2e-tests",
     "test-packages/test-services-odata-common",
     "test-packages/test-services-odata-v2",
     "test-packages/test-services-odata-v4",
     "test-packages/test-services-openapi",
     "test-packages/test-services-e2e",
-    "test-packages/private-test-utils",
     "test-packages/type-tests"
   ],
   "scripts": {

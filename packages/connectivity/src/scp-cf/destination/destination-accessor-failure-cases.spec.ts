@@ -1,7 +1,9 @@
 import nock from 'nock';
 import {
-  mockServiceBindings,
   xsuaaBindingMock,
+  mockServiceBindings
+} from '@sap-cloud-sdk/internal-test-utils';
+import {
   providerServiceToken,
   subscriberServiceToken,
   subscriberServiceTokenWithVerificationURL,
@@ -15,7 +17,7 @@ import {
   basicMultipleResponse,
   destinationName,
   oauthMultipleResponse
-} from '@sap-cloud-sdk/private-test-utils';
+} from '../../../test/test-util';
 import { clientCredentialsTokenCache } from '../client-credentials-token-cache';
 import * as jwt from '../jwt';
 import { getDestination } from './destination-accessor';

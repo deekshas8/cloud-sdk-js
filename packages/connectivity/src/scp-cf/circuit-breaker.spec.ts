@@ -5,7 +5,7 @@ import {
   providerXsuaaUrl,
   xsuaaBindingMock,
   privateKey
-} from '@sap-cloud-sdk/private-test-utils';
+} from '@sap-cloud-sdk/internal-test-utils';
 import { circuitBreakerDefaultOptions } from './resilience-options';
 import { getClientCredentialsToken } from './xsuaa-service';
 import { fetchDestination } from './destination';

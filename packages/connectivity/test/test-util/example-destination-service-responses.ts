@@ -2,7 +2,7 @@ import {
   AuthenticationType,
   DestinationConfiguration,
   DestinationJson
-} from '@sap-cloud-sdk/connectivity/internal';
+} from '../../src/internal';
 
 export const destinationName = 'FINAL-DESTINATION';
 export const certificateMultipleResponse: DestinationConfiguration[] = [

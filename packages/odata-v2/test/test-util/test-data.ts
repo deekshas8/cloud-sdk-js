@@ -6,7 +6,7 @@ import {
 import {
   customStringPropertyValue,
   customTestDeSerializers
-} from '@sap-cloud-sdk/private-test-utils';
+} from '@sap-cloud-sdk/connectivity/test-util';
 import { defaultDeSerializers, CustomDeSerializers } from '../../src';
 
 export const {

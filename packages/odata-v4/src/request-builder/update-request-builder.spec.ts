@@ -1,10 +1,11 @@
 import nock from 'nock';
 import { v4 as uuid } from 'uuid';
+import { defaultDestination } from '@sap-cloud-sdk/internal-test-utils';
 import {
-  defaultDestination,
+  testEntityApi,
+  testEntityResourcePath,
   mockUpdateRequest
-} from '@sap-cloud-sdk/private-test-utils';
-import { testEntityApi, testEntityResourcePath } from '../../test/test-util';
+} from '../../test/test-util';
 import { UpdateRequestBuilder } from './update-request-builder';
 
 function createTestEntity() {

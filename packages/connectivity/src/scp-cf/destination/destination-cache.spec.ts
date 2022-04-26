@@ -1,16 +1,19 @@
 import nock from 'nock';
 import { createLogger } from '@sap-cloud-sdk/util';
 import {
+  connectivityProxyConfigMock,
+  mockServiceBindings,
+  onlyIssuerXsuaaUrl,
+  TestTenants,
+  signedJwt
+} from '@sap-cloud-sdk/internal-test-utils';
+import {
   providerJwtBearerToken,
   providerServiceToken,
   providerUserJwt,
   providerUserPayload,
   subscriberServiceToken,
   subscriberUserJwt,
-  connectivityProxyConfigMock,
-  mockServiceBindings,
-  onlyIssuerXsuaaUrl,
-  TestTenants,
   mockJwtBearerToken,
   mockServiceToken,
   mockInstanceDestinationsCall,
@@ -22,9 +25,8 @@ import {
   destinationName,
   oauthMultipleResponse,
   oauthSingleResponse,
-  onPremisePrincipalPropagationMultipleResponse,
-  signedJwt
-} from '@sap-cloud-sdk/private-test-utils';
+  onPremisePrincipalPropagationMultipleResponse
+} from '../../../test/test-util';
 import { decodeJwt, wrapJwtInHeader } from '../jwt';
 import { destinationServiceCache } from './destination-service-cache';
 import { getDestination } from './destination-accessor';

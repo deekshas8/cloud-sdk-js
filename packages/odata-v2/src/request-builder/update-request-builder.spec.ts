@@ -1,11 +1,9 @@
 import nock from 'nock';
 import { v4 as uuid } from 'uuid';
 import { createLogger } from '@sap-cloud-sdk/util';
+import { defaultDestination } from '@sap-cloud-sdk/internal-test-utils';
 import {
-  defaultDestination,
-  mockUpdateRequest
-} from '@sap-cloud-sdk/private-test-utils';
-import {
+  mockUpdateRequest,
   testEntityApi,
   testEntityMultiLinkApi,
   testEntityResourcePath

@@ -2,7 +2,9 @@ import nock from 'nock';
 import { createLogger } from '@sap-cloud-sdk/util';
 import {
   connectivityProxyConfigMock,
-  mockServiceBindings,
+  mockServiceBindings
+} from '@sap-cloud-sdk/internal-test-utils';
+import {
   mockJwtBearerToken,
   mockServiceToken,
   mockInstanceDestinationsCall,
@@ -15,7 +17,7 @@ import {
   destinationName,
   onPremiseMultipleResponse,
   onPremisePrincipalPropagationMultipleResponse
-} from '@sap-cloud-sdk/private-test-utils';
+} from '../../../test/test-util';
 import { Protocol } from '../protocol';
 import { getDestination } from './destination-accessor';
 import { parseDestination } from './destination';

@@ -6,14 +6,16 @@ import {
   providerXsuaaCertUrl,
   providerXsuaaUrl,
   subscriberXsuaaUrl,
-  signedJwt,
+  signedJwt
+} from '@sap-cloud-sdk/internal-test-utils';
+import {
   providerServiceToken,
   providerUserJwt,
   subscriberServiceToken,
   subscriberUserJwt,
   mockClientCredentialsGrantCall,
   mockClientCredentialsGrantWithCertCall
-} from '@sap-cloud-sdk/private-test-utils';
+} from '../../test/test-util';
 import { clientCredentialsTokenCache } from './client-credentials-token-cache';
 import { serviceToken } from './token-accessor';
 import { defaultResilienceBTPServices } from './resilience-options';

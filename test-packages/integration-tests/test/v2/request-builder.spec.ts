@@ -15,7 +15,7 @@ import {
   privateKey,
   mockClientCredentialsGrantCall,
   destinationName
-} from '@sap-cloud-sdk/private-test-utils';
+} from '@sap-cloud-sdk/connectivity/test-util';
 import { singleTestEntityMultiLinkResponse } from '../test-data/single-test-entity-multi-link-response';
 import { singleTestEntityResponse } from '../test-data/single-test-entity-response';
 import { testEntityCollectionResponse } from '../test-data/test-entity-collection-response';

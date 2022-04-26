@@ -1,15 +1,13 @@
 import { TestEnumType } from '@sap-cloud-sdk/test-services-odata-v4/test-service';
-import {
-  createOriginalTestEntityData1,
-  defaultDestination,
-  mockGetRequest
-} from '@sap-cloud-sdk/private-test-utils';
+import { defaultDestination } from '@sap-cloud-sdk/internal-test-utils';
 import {
   testEntityApi,
   testEntityWithEnumKeyApi,
   testEntityResourcePath,
   createTestEntityWithEnumKey,
-  createTestEntity
+  createTestEntity,
+  createOriginalTestEntityData1,
+  mockGetRequest
 } from '../../test/test-util';
 import { GetByKeyRequestBuilder } from './get-by-key-request-builder';
 

@@ -1,12 +1,14 @@
 import {
   connectivityBindingMock,
   connectivityProxyConfigMock,
-  mockServiceBindings,
+  mockServiceBindings
+} from '@sap-cloud-sdk/internal-test-utils';
+import {
   providerServiceToken,
   providerUserJwt,
   mockServiceToken,
   mockClientCredentialsGrantCall
-} from '@sap-cloud-sdk/private-test-utils';
+} from '../../test/test-util';
 import {
   addProxyConfigurationOnPrem,
   proxyHostAndPort

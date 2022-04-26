@@ -1,14 +1,12 @@
 import nock from 'nock';
 import { v4 as uuid } from 'uuid';
+import { defaultDestination } from '@sap-cloud-sdk/internal-test-utils';
 import {
-  defaultDestination,
-  mockGetRequest,
-  createOriginalTestEntityData1,
-  createOriginalTestEntityDataWithLinks
-} from '@sap-cloud-sdk/private-test-utils';
-import {
-  testEntityApi,
   createTestEntity,
+  createOriginalTestEntityData1,
+  createOriginalTestEntityDataWithLinks,
+  mockGetRequest,
+  testEntityApi,
   testEntityResourcePath
 } from '../../test/test-util';
 import { GetByKeyRequestBuilder } from './get-by-key-request-builder';

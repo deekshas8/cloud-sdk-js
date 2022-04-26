@@ -2,7 +2,7 @@ import { createLogger } from '@sap-cloud-sdk/util';
 import {
   defaultBasicCredentials,
   defaultDestination
-} from '@sap-cloud-sdk/private-test-utils';
+} from '@sap-cloud-sdk/internal-test-utils';
 import { getAuthHeaders } from './authorization-header';
 import { Destination } from './destination';
 

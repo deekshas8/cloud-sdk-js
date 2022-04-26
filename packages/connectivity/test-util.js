@@ -1,0 +1,15 @@
+'use strict';
+function __export(m) {
+  for (const p in m) {
+    if (!exports.hasOwnProperty(p)) {
+      exports[p] = m[p];
+    }
+  }
+}
+Object.defineProperty(exports, '__esModule', { value: true });
+/**
+ * @packageDocumentation
+ * @experimental The test module is related to mocking functions which are used only internally.
+ */
+__export(require('./dist/test-util/index.js'));
+// # sourceMappingURL=test-util.js.map

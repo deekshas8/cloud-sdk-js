@@ -1,6 +1,10 @@
 import nock from 'nock';
 import { createLogger } from '@sap-cloud-sdk/util';
 import {
+  mockServiceBindings,
+  onlyIssuerXsuaaUrl
+} from '@sap-cloud-sdk/internal-test-utils';
+import {
   mockInstanceDestinationsCall,
   mockSingleDestinationCall,
   mockSubaccountDestinationsCall,
@@ -9,14 +13,12 @@ import {
   providerServiceToken,
   subscriberServiceToken,
   subscriberUserJwt,
-  mockServiceBindings,
-  onlyIssuerXsuaaUrl,
   mockServiceToken,
   basicMultipleResponse,
   certificateMultipleResponse,
   certificateSingleResponse,
   destinationName
-} from '@sap-cloud-sdk/private-test-utils';
+} from '../../../test/test-util';
 import { wrapJwtInHeader } from '../jwt';
 import * as destinationService from './destination-service';
 import { DestinationConfiguration, parseDestination } from './destination';

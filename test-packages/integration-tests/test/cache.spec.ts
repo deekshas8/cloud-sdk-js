@@ -6,27 +6,24 @@ import {
   IsolationStrategy
 } from '@sap-cloud-sdk/connectivity';
 import {
+  wrapJwtInHeader,
   destinationCache,
   destinationServiceCache,
   clientCredentialsTokenCache
 } from '@sap-cloud-sdk/connectivity/internal';
-import { wrapJwtInHeader } from '@sap-cloud-sdk/connectivity/dist/scp-cf';
 import {
   mockClientCredentialsGrantCall,
-  mockUserTokenGrantCall
-} from '@sap-cloud-sdk/private-test-utils';
-import { privateKey, publicKey } from '@sap-cloud-sdk/private-test-utils';
-import {
+  mockUserTokenGrantCall,
+  privateKey,
+  publicKey,
   destinationBindingClientSecretMock,
   mockServiceBindings,
   providerXsuaaUrl,
-  xsuaaBindingMock
-} from '@sap-cloud-sdk/private-test-utils';
-import {
+  xsuaaBindingMock,
   mockInstanceDestinationsCall,
   mockSingleDestinationCall,
   mockSubaccountDestinationsCall
-} from '@sap-cloud-sdk/private-test-utils';
+} from '@sap-cloud-sdk/connectivity/test-util';
 
 describe('CacheDestination & CacheClientCredentialToken', () => {
   const jku = `http://${xsuaaBindingMock.credentials.uaadomain}`;

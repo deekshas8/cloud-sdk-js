@@ -30,7 +30,7 @@ import {
   PropertyMetadata,
   Time
 } from '../../packages/odata-common/src/internal';
-import { customTestDeSerializers } from '@sap-cloud-sdk/private-test-utils';
+import { customTestDeSerializers } from '@sap-cloud-sdk/connectivity/test-util';
 
 /*
  * Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved.
