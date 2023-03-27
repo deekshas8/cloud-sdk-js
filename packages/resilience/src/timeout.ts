@@ -54,7 +54,7 @@ function getTimeoutPromise<T>(
 ): [Promise<T>, NodeJS.Timeout | undefined] {
   let timeoutNode: NodeJS.Timeout | undefined;
   const promise = new Promise<T>((resolve, reject) => {
-    timeoutNode = setTimeout(() => reject(new Error(message)), timeoutValue);
+    timeoutNode = setTimeout(() => { console.log(`${message}`); reject(new Error(message)); }, timeoutValue);
   });
   return [promise, timeoutNode];
 }
@@ -75,6 +75,7 @@ async function wrapInTimeout<T>(
   );
   // Clear the timeout if the original promise is resolve or reject to avoid open handlers.
   const withClearTimeout = promise.finally(() => {
+    console.log(`Clearing other promise`);
     clearTimeout(timeoutInstance);
   });
 

@@ -41,17 +41,19 @@ export function retry<
           } catch (error) {
             // Don't retry on error statuses where a second attempt won't help
             const status = error?.response?.status;
+            console.log(`HTTP Status Code is: ${status}`);
             if (!status) {
-              logger.debug(
+              console.log(
                 'HTTP request failed but error did not contain a response status field as expected. Rethrowing error.'
               );
             }
             if (status.toString().startsWith('4')) {
+              console.log(`Inside toString().startsWith('4'): ${status}`);
               bail(new Error(`Request failed with status code ${status}`));
               // We need to return something here but the actual value does not matter
               return undefined as ReturnType;
             }
-
+            console.log(`Outside toString().startsWith('4'): ${status}`);
             throw error;
           }
         },
