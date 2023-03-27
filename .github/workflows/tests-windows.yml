@@ -19,4 +19,4 @@ jobs:
           node-version: 18
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
-      - run: yarn test:unit --force
+      - run: yarn resilience test:unit
