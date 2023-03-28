@@ -17,6 +17,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'yarn'
       - run: yarn install --frozen-lockfile
-      - run: yarn test:unit
+      - run: yarn test:unit --concurrency=1
+      - name: Archive results
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: windows-test-results
+          path: '*packages/**/*-test-output.json'
+          retention-days: 30
