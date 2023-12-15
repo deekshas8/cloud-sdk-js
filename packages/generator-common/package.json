@@ -44,7 +44,7 @@
     "typescript": "~5.0.2",
     "prettier": "^2.8.7",
     "yargs": "^17.7.1",
-    "voca": "^1.4.0"
+    "voca": "^1.4.1"
   },
   "devDependencies": {
     "@types/yargs": "^17.0.23",
