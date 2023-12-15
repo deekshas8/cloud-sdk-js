@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "base64url": "^3.0.1",
-    "nock": "^13.3.0",
+    "nock": "^13.4.0",
     "typescript": "~5.0.2"
   }
 }
