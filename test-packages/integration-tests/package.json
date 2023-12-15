@@ -30,7 +30,7 @@
     "@sap-cloud-sdk/openapi-generator": "^3.0.2",
     "bignumber.js": "^9.1.1",
     "execa": "^5.0.0",
-    "jsonwebtoken": "^9.0.0",
+    "jsonwebtoken": "^9.0.2",
     "nock": "^13.3.0",
     "winston": "^3.8.2"
   }
