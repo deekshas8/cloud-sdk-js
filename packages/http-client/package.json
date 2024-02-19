@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "https-proxy-agent": "^5.0.0",
-    "nock": "^13.3.0",
+    "nock": "^13.5.3",
     "typescript": "~5.0.2",
     "jsonwebtoken": "^9.0.0"
   }
